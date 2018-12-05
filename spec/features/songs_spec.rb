@@ -40,7 +40,11 @@ describe "songs", type:  :feature do
   describe "song uploads" do
     it "can upload a songs file" do
       visit songs_path
+<<<<<<< HEAD
       attach_file("file", Rails.root.join("spec", "fixtures", "songs.csv"))
+=======
+      attach_file("songs", Rails.root.join("spec", "fixtures", "songs.csv"))
+>>>>>>> ae73324f38f08e7e6c2ceaa6b4b4bf6902b42be6
       find(:xpath, "//input[contains(@name, 'commit')]").click()
       song = Song.find_by(title: "Caught Up in You")
       expect(page).to have_link("Caught Up in You", href: song_path(song))
